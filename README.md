@@ -20,8 +20,9 @@
 
 ```bash
 pip install python-pptx scikit-learn
-
+```
 ## 專案結構建議
+```bash
 PPT_Similarity_Checker/
 │
 ├─ main.py                 # 主程式
@@ -31,7 +32,7 @@ PPT_Similarity_Checker/
 │   ├─ compare2.pptx
 │   └─ ...
 └─ README.md
-
+```
 ## 相似度計算說明
 使用 TF-IDF 向量將文字轉換為數值形式，接著以餘弦相似度計算向量間相似程度：
 
