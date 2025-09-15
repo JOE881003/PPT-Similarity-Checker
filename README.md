@@ -48,3 +48,6 @@ similarity = (A · B) / (||A|| * ||B||)
 
 點選「產生 GPT 摘要」即可獲得重點與差異比較
 
+---
+
+## Streamlit cloud: https://ppt-similarity-checker-hfgztyhvdad5kkf2bkn75q.streamlit.app/
