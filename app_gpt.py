@@ -59,7 +59,8 @@ st.title("PPT 相似度比對工具 + GPT 摘要")
 st.write("上傳兩份 **PPTX** 簡報，系統會計算文字相似度，並可用 **GPT** 產生摘要。")
 
 # 建議用 Secrets；這裡提供臨時輸入欄位以便測試
-api_key = st.text_input("OpenAI API Key（以 sk- 開頭）", type="password", help="正式上線請改用 st.secrets 保存")
+#api_key = st.text_input("OpenAI API Key（以 sk- 開頭）", type="password", help="正式上線請改用 st.secrets 保存")
+api_key = st.secrets["openai"]["api_key"]
 model = st.selectbox("摘要模型", ["gpt-4o-mini", "gpt-4o"], index=0)
 
 col1, col2 = st.columns(2)
@@ -76,13 +77,13 @@ if ppt1 and ppt2:
 
     st.success(f"兩份簡報的相似度為： **{score:.4f}**")
 
-    st.subheader("📌 文字摘要（截斷展示）")
+    st.subheader("文字摘要（截斷展示）")
     st.write("**簡報 1 部分內容：**", (text1[:500] + "...") if len(text1) > 500 else text1)
     st.write("**簡報 2 部分內容：**", (text2[:500] + "...") if len(text2) > 500 else text2)
 
     # ---------- 新增：用 GPT 產生摘要 ----------
     if api_key:
-        if st.button("🔎 產生兩份 PPT 的 GPT 摘要"):
+        if st.button("產生兩份 PPT 的 GPT 摘要"):
             try:
                 client = OpenAI(api_key=api_key)
                 with st.spinner("GPT 正在產生摘要（簡報 1）…"):
@@ -90,10 +91,10 @@ if ppt1 and ppt2:
                 with st.spinner("GPT 正在產生摘要（簡報 2）…"):
                     summary2 = summarize_long_text(text2, client, model=model)
 
-                st.subheader("🧠 GPT 摘要：簡報 1")
+                st.subheader("GPT 摘要：簡報 1")
                 st.markdown(summary1)
 
-                st.subheader("🧠 GPT 摘要：簡報 2")
+                st.subheader("GPT 摘要：簡報 2")
                 st.markdown(summary2)
 
                 # 額外：比對差異重點（可選）
