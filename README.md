@@ -50,4 +50,4 @@ similarity = (A · B) / (||A|| * ||B||)
 
 ---
 
-## Streamlit cloud: https://ppt-similarity-checker-hfgztyhvdad5kkf2bkn75q.streamlit.app/
+### Streamlit cloud: https://ppt-similarity-checker-hfgztyhvdad5kkf2bkn75q.streamlit.app/
