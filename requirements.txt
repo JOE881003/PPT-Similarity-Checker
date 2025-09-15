@@ -3,3 +3,4 @@ scikit-learn
 pandas
 numpy
 python-pptx
+openai>=1.0.0
